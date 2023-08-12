@@ -1,0 +1,11 @@
+.product-title {
+    height: 2.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.card-body-price {
+    margin: 0;
+}
