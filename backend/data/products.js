@@ -1,5 +1,6 @@
 const products = [
     {
+        _id: '1',
         name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         image: 'https://images.unsplash.com/photo-1689871430362-940d88b3c1ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         description:
@@ -12,6 +13,7 @@ const products = [
         numReviews: 12,
     },
     {
+        _id: '2',
         name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         image: 'https://images.unsplash.com/photo-1689871430362-940d88b3c1ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         description:
@@ -24,6 +26,7 @@ const products = [
         numReviews: 8,
     },
     {
+        _id: '3',
         name: 'Lorem ipsum dolor',
         image: 'https://images.unsplash.com/photo-1689871430362-940d88b3c1ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         description:
@@ -36,6 +39,7 @@ const products = [
         numReviews: 12,
     },
     {
+        _id: '4',
         name: 'Lorem ipsum dolor sit amet',
         image: 'https://images.unsplash.com/photo-1689871430362-940d88b3c1ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         description:
@@ -48,6 +52,7 @@ const products = [
         numReviews: 12,
     },
     {
+        _id: '5',
         name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         image: 'https://images.unsplash.com/photo-1689871430362-940d88b3c1ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         description:
@@ -60,6 +65,7 @@ const products = [
         numReviews: 10,
     },
     {
+        _id: '6',
         name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         image: 'https://images.unsplash.com/photo-1689871430362-940d88b3c1ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         description:
@@ -73,4 +79,4 @@ const products = [
     },
 ];
 
-export default products;
+module.exports = products 

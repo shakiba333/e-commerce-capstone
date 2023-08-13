@@ -1,7 +1,17 @@
 import { Row, Col } from "react-bootstrap";
-import products from "../../products";
+import { useEffect, useState } from "react";
 import Product from "../../components/Product/Product";
+import axios from "axios";
 function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const { data } = await axios.get("/api/products");
+      setProducts(data);
+    };
+    getProducts();
+  }, []);
   return (
     <>
       <h1>All Products</h1>

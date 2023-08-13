@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
-import products from "../../products";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import {
   Row,
@@ -13,10 +14,19 @@ import {
 import Rating from "../../components/Rating/Rating";
 import "./ProductDetail.css";
 import { FiCheck, FiHeart, FiX, FiChevronLeft } from "react-icons/fi";
+
 function ProductDetail() {
+  const [product, setProduct] = useState({});
+
   const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
-  console.log(product);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const { data } = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+    };
+    getProduct();
+  }, [productId]);
   return (
     <>
       <Link className="btn my-3" to="/">

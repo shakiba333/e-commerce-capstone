@@ -11,7 +11,7 @@ function Header() {
             <Navbar.Brand>Infinite</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="navbarScroll">
             <Nav className="ms-auto">
               <LinkContainer to="/cart">
                 <Nav.Link className="px-3">
