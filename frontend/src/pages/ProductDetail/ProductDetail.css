@@ -35,3 +35,17 @@
     background-color: rgb(98, 98, 98);
     color: white;
 }
+
+.qty-wrap {
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.qty-btn {
+    border: none;
+    background-color: white;
+}
+
+.plus-disable:disabled {
+    color: gray;
+}
