@@ -41,9 +41,10 @@ function ProductDetail() {
       setQty(1);
     }
   }, [product, qty]);
+
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
-    navigate("/cart");
+    // navigate("/cart");
   };
   return (
     <>

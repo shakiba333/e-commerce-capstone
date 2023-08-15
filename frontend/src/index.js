@@ -15,13 +15,14 @@ import { Provider } from 'react-redux';
 import store from './store';
 import reportWebVitals from './reportWebVitals';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-
+import Cart from './pages/Cart/Cart';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<Home />} />
       <Route path='/product/:id' element={<ProductDetail />} />
+      {/* <Route path='/cart' element={<Cart />} /> */}
 
 
     </Route>

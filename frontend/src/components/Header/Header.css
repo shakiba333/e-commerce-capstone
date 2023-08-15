@@ -18,3 +18,8 @@
     align-self: flex-start;
     margin-bottom: 9px;
 }
+
+.overlay-btn {
+    background-color: white;
+    border: none;
+}

@@ -1,0 +1,17 @@
+.checkout-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+}
+
+.checkout-btn:hover {
+    background-color: rgb(98, 98, 98);
+    color: white;
+}
+
+.checkout-btn:disabled {
+    background-color: rgb(98, 98, 98);
+    color: white;
+}
