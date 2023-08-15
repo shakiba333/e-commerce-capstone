@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require('express');
 require('dotenv').config();
 const connectDB = require('./config/db.js')
@@ -14,7 +15,11 @@ app.get('/', (req, res) => {
 })
 app.use('/api/products', productRoutes);
 
+app.use(express.static(path.join(__dirname, '/frontend/build')));
 
+app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+);
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

@@ -50,6 +50,22 @@ function Cart() {
                   </Col>
                   <Col>${item.price}</Col>
 
+                  {/* <Col>
+                    <Form.Control
+                      as="select"
+                      value={item.qty}
+                      onChange={(e) =>
+                        addToCartHandler(item, Number(e.target.value))
+                      }
+                    >
+                      {[...Array(item.countInStock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
+                    </Form.Control>
+                  </Col> */}
+
                   <Col>
                     <Button
                       type="button"
