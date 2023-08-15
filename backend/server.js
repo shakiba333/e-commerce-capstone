@@ -12,7 +12,7 @@ const app = express();
 
 
 app.use('/api/products', productRoutes);
-
+const __dirname = path.resolve();
 if (process.env.NODE_ENV === 'development') {
     app.get('/', (req, res) => {
         res.send('API is running..');
