@@ -9,3 +9,10 @@
 .card-body-price {
     margin: 0;
 }
+
+.product-img {
+    width: 300px;
+    height: 400px;
+    border: 1px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

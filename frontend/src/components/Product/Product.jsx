@@ -7,6 +7,7 @@ function Product({ product }) {
       <Card style={{ border: "none" }}>
         <Link to={`/product/${product._id}`}>
           <Card.Img
+            className="product-img"
             style={{ borderRadius: "0" }}
             src={product.image}
             variant="top"

@@ -53,8 +53,14 @@ function ProductDetail() {
       </Link>
       {product ? (
         <Row>
-          <Col md={8}>
-            <Image src={product.image} alt={product.name} fluid />
+          <Col md={1}></Col>
+          <Col md={7}>
+            <Image
+              className="product-detail-img"
+              src={product.image}
+              alt={product.name}
+              fluid
+            />
           </Col>
 
           <Col md={4}>
