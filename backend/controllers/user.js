@@ -4,7 +4,9 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser,
+    getUserProfile,
 }
 
 async function registerUser(req, res) {
@@ -91,3 +93,40 @@ async function loginUser(req, res) {
         res.status(500).json({ message: 'An error occurred while logging in.' });
     }
 }
+
+function logoutUser(req, res) {
+    try {
+        res.cookie('jwt', '', {
+            httpOnly: true,
+            expires: new Date(0),
+        });
+
+        res.status(200).json({ message: 'Logged out successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'An error occurred while logging out.' });
+    }
+};
+
+
+async function getUserProfile(req, res) {
+    try {
+        const user = await User.findById(req.user._id);
+
+        if (user) {
+            res.json({
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'An error occurred while fetching the user profile.' });
+    }
+}
+
+
+
