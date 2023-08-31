@@ -3,11 +3,10 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser
 
 }
-
-
 
 async function registerUser(req, res) {
     const { name, email, password } = req.body;
@@ -49,9 +48,34 @@ async function registerUser(req, res) {
 
 }
 
+async function loginUser(req, res) {
+    const { email, password } = req.body;
 
+    const user = await User.findOne({ email });
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
+    if (user && isPasswordCorrect) {
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '30d',
+        });
 
+        res.cookie('jwt', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV !== 'development',
+            sameSite: 'strict',
+            maxAge: 30 * 24 * 60 * 60 * 1000,
+        });
+
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+        });
+    } else {
+        res.status(401);
+        throw new Error('Invalid email or password');
+    }
+}
 
 
 
