@@ -7,6 +7,7 @@ module.exports = {
     loginUser,
     logoutUser,
     getUserProfile,
+    updateUserProfile
 }
 
 async function registerUser(req, res) {
@@ -44,7 +45,7 @@ async function registerUser(req, res) {
             res.status(201).json({
                 _id: newUser._id,
                 name: newUser.name,
-                email: newUser.email,
+                email: newUser.email
             });
         } else {
             res.status(400).json({ message: 'Invalid user data' });
@@ -83,7 +84,7 @@ async function loginUser(req, res) {
             res.json({
                 _id: user._id,
                 name: user.name,
-                email: user.email,
+                email: user.email
             });
         } else {
             res.status(401).json({ message: 'Invalid email or password' });
@@ -117,7 +118,7 @@ async function getUserProfile(req, res) {
             res.json({
                 _id: user._id,
                 name: user.name,
-                email: user.email,
+                email: user.email
             });
         } else {
             res.status(404).json({ message: 'User not found' });
@@ -128,5 +129,32 @@ async function getUserProfile(req, res) {
     }
 }
 
+async function updateUserProfile(req, res) {
+    try {
+        const user = await User.findById(req.user._id);
+
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.email = req.body.email || user.email;
+
+            if (req.body.password) {
+                user.password = req.body.password;
+            }
+
+            const updatedUser = await user.save();
+
+            res.json({
+                _id: updatedUser._id,
+                name: updatedUser.name,
+                email: updatedUser.email
+            });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'An error occurred while updating the user profile.' });
+    }
+}
 
 
