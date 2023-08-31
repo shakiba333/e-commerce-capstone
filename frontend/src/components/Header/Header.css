@@ -23,3 +23,7 @@
     background-color: white;
     border: none;
 }
+
+.overlay-btn:hover {
+    color: gray;
+}

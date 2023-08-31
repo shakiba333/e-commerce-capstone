@@ -1,18 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
-  Button,
-  Card,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Button } from "react-bootstrap";
 import { addToCart, removeFromCart } from "../../slices/cartSlice";
 import { FiTrash } from "react-icons/fi";
 import "./Cart.css";
+
 function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
