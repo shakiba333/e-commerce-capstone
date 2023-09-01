@@ -5,7 +5,7 @@ export function FormOverlay({ signupIsOpen, onClose, children }) {
   return (
     <Fragment>
       {signupIsOpen && (
-        <div className="overlay">
+        <div>
           <div className="form-overlay-background" onClick={onClose} />
           <div className="form-overlay-container">
             <div className="form-overlay-controls">

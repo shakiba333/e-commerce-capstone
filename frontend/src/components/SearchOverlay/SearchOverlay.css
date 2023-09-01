@@ -1,5 +1,4 @@
-.form-overlay-background {
-    background-color: rgba(0, 0, 0, 0.5);
+.search-overlay-background {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -7,36 +6,50 @@
     left: 0;
     cursor: pointer;
     z-index: 9;
+
 }
 
-.form-overlay-container {
+.search-overlay-container {
     background-color: white;
     position: fixed;
-    top: 0;
+    top: 14%;
     right: 0;
-    bottom: 0;
+    bottom: 40%;
     left: 0;
     margin: auto;
     z-index: 10;
-    padding: 30px;
-    width: fit-content;
-    height: fit-content;
+    padding: 0 20px;
+    width: 100%;
+    height: 60%;
+    overflow-y: auto;
 }
 
-.form-overlay-controls {
+.search-overlay-controls {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    width: 70%;
+
 }
 
-.form-overlay-close:after {
+.search-overlay-content {
+    width: 70%;
+
+
+}
+
+.search-overlay-close:after {
     display: inline-block;
     content: "\00d7";
 }
 
-.form-overlay-close {
+.search-overlay-close {
+
     border: none;
     background-color: transparent;
     font-size: 36px;
     cursor: pointer;
+    margin-top: 50px;
 }

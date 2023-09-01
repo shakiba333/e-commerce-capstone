@@ -6,8 +6,10 @@ import { useSelector } from "react-redux";
 import "./Header.css";
 import Cart from "../../pages/Cart/Cart";
 import Overlay from "../CartOverlay/Overlay";
-import FormOverlay from "../Auth/FormOverlay";
+import FormOverlay from "../FormOverlay/FormOverlay";
 import Login from "../Login/Login";
+import SearchOverlay from "../SearchOverlay/SearchOverlay";
+import Search from "../Search/Search";
 
 function Header() {
   const { cartItems } = useSelector((state) => state.cart);
@@ -42,6 +44,13 @@ function Header() {
               >
                 <FiSearch />
               </button>
+              <SearchOverlay
+                searchIsOpen={searchIsOpen}
+                onClose={toggleSearchOverlay}
+              >
+                <Search />
+              </SearchOverlay>
+
               <LinkContainer to="/wishlist">
                 <Nav.Link className="overlay-btn">
                   <FiHeart />

@@ -4,7 +4,7 @@ function Overlay({ isOpen, onClose, children }) {
   return (
     <>
       {isOpen && (
-        <div className="overlay">
+        <div>
           <div className="overlay__background" onClick={onClose} />
           <div className="overlay__container">
             <div className="overlay__controls">
