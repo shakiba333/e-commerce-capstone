@@ -7,6 +7,7 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Switch
 } from 'react-router-dom';
 
 import App from './App';
@@ -16,6 +17,7 @@ import store from './store';
 import reportWebVitals from './reportWebVitals';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
