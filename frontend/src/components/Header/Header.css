@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&family=Oxygen:wght@300&family=Phudu:wght@300&family=Source+Code+Pro:ital,wght@0,800;1,400&family=Space+Grotesk:wght@700&display=swap');
+
+#app-name {
+    font-family: 'Space Grotesk', sans-serif;
+
+}
+
 .navbar {
     border-bottom: 2px solid black;
+    background-color: white;
 }
 
 .cart-badge-container {

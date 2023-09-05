@@ -14,7 +14,7 @@ import Register from "../Register/Register";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 
 function Header() {
-  let userLoggedIn = true;
+  let userLoggedIn = false;
   const { cartItems } = useSelector((state) => state.cart);
   const [isOpen, setIsOpen] = useState(false);
   const [signupIsOpen, setSignupIsOpen] = useState(false);
@@ -36,10 +36,15 @@ function Header() {
 
   return (
     <header>
-      <Navbar className="navbar" variant="white" expand="lg" collapseOnSelect>
+      <Navbar
+        className="navbar fixed-top"
+        variant="white"
+        expand="lg"
+        collapseOnSelect
+      >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>InfiniteMall</Navbar.Brand>
+            <Navbar.Brand id="app-name">InfiniteMall</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="navbarScroll"></Navbar.Toggle>
