@@ -12,6 +12,10 @@
     align-self: flex-end;
 }
 
+.nav-item {
+    position: relative;
+}
+
 .cart-num-div {
     font-size: 8px;
     font-weight: bold;
@@ -22,8 +26,10 @@
 .overlay-btn {
     background-color: white;
     border: none;
+
 }
 
 .overlay-btn:hover {
     color: gray;
+    display: block;
 }

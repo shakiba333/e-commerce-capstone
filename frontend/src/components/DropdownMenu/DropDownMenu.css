@@ -1,0 +1,26 @@
+/* DropdownMenu.css */
+
+/* Dropdown styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 85%;
+    background-color: white;
+    border: 1px solid gray;
+    border-top: 2px solid black;
+    border-radius: 0;
+    padding: 10px;
+    list-style: none;
+
+}
+
+.dropdown-menu.open {
+    display: block;
+
+}
+
+.dropdown-menu:hover {
+    display: block;
+}

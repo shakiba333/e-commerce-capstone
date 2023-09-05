@@ -11,13 +11,16 @@ import Login from "../Login/Login";
 import SearchOverlay from "../SearchOverlay/SearchOverlay";
 import Search from "../Search/Search";
 import Register from "../Register/Register";
+import DropDownMenu from "../DropdownMenu/DropDownMenu";
 
 function Header() {
+  let userLoggedIn = true;
   const { cartItems } = useSelector((state) => state.cart);
   const [isOpen, setIsOpen] = useState(false);
   const [signupIsOpen, setSignupIsOpen] = useState(false);
   const [searchIsOpen, setSearchIsOpen] = useState(false);
   const [isResgistring, setIsRegistering] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleOverlay = () => {
     setIsOpen(!isOpen);
   };
@@ -31,6 +34,10 @@ function Header() {
   const toggleRegistringOverlay = () => {
     setIsRegistering(!isResgistring);
   };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header>
       <Navbar className="navbar" variant="white" expand="lg" collapseOnSelect>
@@ -61,21 +68,32 @@ function Header() {
                   <FiHeart />
                 </Nav.Link>
               </LinkContainer>
-
-              <button onClick={toggleFormOverlay} className="overlay-btn px-3">
+              <button
+                onClick={toggleFormOverlay}
+                className="overlay-btn px-3 nav-item"
+                onMouseEnter={toggleMenu}
+                onMouseLeave={toggleMenu}
+              >
                 <FiUser />
               </button>
-              <FormOverlay
-                signupIsOpen={signupIsOpen}
-                onClose={toggleFormOverlay}
-              >
-                {isResgistring ? (
-                  <Register />
-                ) : (
-                  <Login toggleRegistringOverlay={toggleRegistringOverlay} />
-                )}
-              </FormOverlay>
-
+              {userLoggedIn ? (
+                <DropDownMenu isOpen={isMenuOpen} />
+              ) : (
+                <>
+                  <FormOverlay
+                    signupIsOpen={signupIsOpen}
+                    onClose={toggleFormOverlay}
+                  >
+                    {isResgistring ? (
+                      <Register />
+                    ) : (
+                      <Login
+                        toggleRegistringOverlay={toggleRegistringOverlay}
+                      />
+                    )}
+                  </FormOverlay>
+                </>
+              )}
               <button onClick={toggleOverlay} className="overlay-btn ">
                 <div className="cart-badge-container">
                   {cartItems.length > 0 && (
