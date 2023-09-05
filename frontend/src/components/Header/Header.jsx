@@ -1,7 +1,7 @@
 import { Badge, Navbar, Nav, Container } from "react-bootstrap";
 import { FiHeart, FiSearch, FiShoppingCart, FiUser } from "react-icons/fi";
 import { LinkContainer } from "react-router-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Header.css";
 import Cart from "../../pages/Cart/Cart";

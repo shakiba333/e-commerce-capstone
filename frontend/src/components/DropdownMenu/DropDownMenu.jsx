@@ -4,9 +4,9 @@ function DropDownMenu() {
   return (
     <>
       <div class="dropdown-content">
-        <Link href="#">Profile</Link>
-        <Link href="#">Order</Link>
-        <Link href="#">Logout</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/order">Order</Link>
+        <Link to="/logout">Logout</Link>
       </div>
     </>
   );

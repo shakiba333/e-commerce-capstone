@@ -17,6 +17,9 @@ import store from './store';
 import reportWebVitals from './reportWebVitals';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
+import WishList from './pages/WishList/WishList';
+import Profile from './pages/Profile/Profile';
+import Orders from './pages/Orders/Orders';
 
 
 const router = createBrowserRouter(
@@ -24,6 +27,9 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<Home />} />
       <Route path='/product/:id' element={<ProductDetail />} />
+      <Route path='/wishlist' element={<WishList />} />
+      <Route path='/profile' element={<Profile />} />
+      <Route path='/order' element={<Orders />} />
       {/* <Route path='/cart' element={<Cart />} /> */}
 
 
