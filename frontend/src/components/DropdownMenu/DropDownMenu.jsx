@@ -1,18 +1,13 @@
+import { Link } from "react-router-dom";
 import "./DropDownMenu.css";
-function DropDownMenu({ isOpen }) {
+function DropDownMenu() {
   return (
     <>
-      <ul className={`dropdown-menu ${isOpen ? "open" : ""}`}>
-        <li onMouseEnter={isOpen} onMouseLeave={isOpen}>
-          <a href="#">Profile</a>
-        </li>
-        <li onMouseEnter={isOpen} onMouseLeave={isOpen}>
-          <a href="#">Orders</a>
-        </li>
-        <li onMouseEnter={isOpen} onMouseLeave={isOpen}>
-          <a href="#">Logout</a>
-        </li>
-      </ul>
+      <div class="dropdown-content">
+        <Link href="#">Profile</Link>
+        <Link href="#">Order</Link>
+        <Link href="#">Logout</Link>
+      </div>
     </>
   );
 }
