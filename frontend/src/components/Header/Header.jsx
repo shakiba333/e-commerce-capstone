@@ -14,8 +14,8 @@ import Register from "../Register/Register";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
 
 function Header() {
-  let userLoggedIn = false;
   const { cartItems } = useSelector((state) => state.cart);
+  const { userInfo } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
   const [signupIsOpen, setSignupIsOpen] = useState(false);
   const [searchIsOpen, setSearchIsOpen] = useState(false);
@@ -76,7 +76,7 @@ function Header() {
                 >
                   <FiUser />
                 </button>
-                {userLoggedIn ? (
+                {userInfo ? (
                   <DropDownMenu />
                 ) : (
                   <>
