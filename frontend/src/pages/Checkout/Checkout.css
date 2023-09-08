@@ -1,0 +1,15 @@
+.Checkout {
+    text-align: center;
+    width: 400px;
+    margin-left: 50px;
+    background-color: rgb(247, 247, 247);
+
+}
+
+.Checkout h4 {
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}

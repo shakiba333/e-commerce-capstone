@@ -20,6 +20,8 @@ import Cart from './pages/Cart/Cart';
 import WishList from './pages/WishList/WishList';
 import Profile from './pages/Profile/Profile';
 import Orders from './pages/Orders/Orders';
+import Shipping from './components/Shipping/Shipping';
+import Checkout from './pages/Checkout/Checkout';
 
 
 const router = createBrowserRouter(
@@ -30,6 +32,7 @@ const router = createBrowserRouter(
       <Route path='/wishlist' element={<WishList />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/order' element={<Orders />} />
+      <Route path='/checkout' element={<Checkout />} />
       {/* <Route path='/cart' element={<Cart />} /> */}
 
 

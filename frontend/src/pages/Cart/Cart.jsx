@@ -9,7 +9,6 @@ function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const { userInfo } = useSelector((state) => state.auth);
   const { cartItems } = cart;
 
   const addToCartHandler = (product, qty) => {
@@ -21,11 +20,7 @@ function Cart() {
   };
 
   const checkoutHandler = () => {
-    if (userInfo) {
-      navigate("/shipping");
-    } else {
-      console.log("login");
-    }
+    navigate("/checkout");
   };
   return (
     <Row>
