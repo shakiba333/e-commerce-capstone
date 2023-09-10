@@ -12,26 +12,26 @@ import SearchOverlay from "../SearchOverlay/SearchOverlay";
 import Search from "../Search/Search";
 import Register from "../Register/Register";
 import DropDownMenu from "../DropdownMenu/DropDownMenu";
+import { useAuth } from "../../AuthContext";
 
 function Header() {
   const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.auth);
+  const {
+    signupIsOpen,
+    isRegistering,
+    toggleFormOverlay,
+    toggleRegisteringOverlay,
+  } = useAuth();
+
   const [isOpen, setIsOpen] = useState(false);
-  const [signupIsOpen, setSignupIsOpen] = useState(false);
   const [searchIsOpen, setSearchIsOpen] = useState(false);
-  const [isResgistring, setIsRegistering] = useState(false);
   const toggleOverlay = () => {
     setIsOpen(!isOpen);
   };
-  const toggleFormOverlay = () => {
-    setSignupIsOpen(!signupIsOpen);
-    setIsRegistering(false);
-  };
+
   const toggleSearchOverlay = () => {
     setSearchIsOpen(!searchIsOpen);
-  };
-  const toggleRegistringOverlay = () => {
-    setIsRegistering(!isResgistring);
   };
 
   return (
@@ -84,11 +84,11 @@ function Header() {
                       signupIsOpen={signupIsOpen}
                       onClose={toggleFormOverlay}
                     >
-                      {isResgistring ? (
+                      {isRegistering ? (
                         <Register />
                       ) : (
                         <Login
-                          toggleRegistringOverlay={toggleRegistringOverlay}
+                          toggleRegistringOverlay={toggleRegisteringOverlay}
                         />
                       )}
                     </FormOverlay>

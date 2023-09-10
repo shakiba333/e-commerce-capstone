@@ -22,7 +22,7 @@ import Profile from './pages/Profile/Profile';
 import Orders from './pages/Orders/Orders';
 import Shipping from './components/Shipping/Shipping';
 import Checkout from './pages/Checkout/Checkout';
-
+import { AuthProvider } from './AuthContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
       <Route path='/profile' element={<Profile />} />
       <Route path='/order' element={<Orders />} />
       <Route path='/checkout' element={<Checkout />} />
-      {/* <Route path='/cart' element={<Cart />} /> */}
+
 
 
     </Route>
@@ -43,7 +43,8 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}><RouterProvider router={router} /></Provider>
+    <AuthProvider >
+      <Provider store={store}><RouterProvider router={router} /></Provider></AuthProvider>
 
   </React.StrictMode>
 );

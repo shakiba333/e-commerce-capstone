@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../../slices/usersApiSlice";
@@ -56,9 +55,12 @@ function Login({ toggleRegistringOverlay }) {
           </div>
         </form>
 
-        <Link to="" onClick={toggleRegistringOverlay}>
+        <button
+          className="register-link-style"
+          onClick={toggleRegistringOverlay}
+        >
           Not a user yet? Create an account!
-        </Link>
+        </button>
       </div>
     </>
   );

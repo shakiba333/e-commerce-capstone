@@ -17,3 +17,18 @@
     color: white;
     border: 0;
 }
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 62px;
+}
+
+.row-container p {
+    font-weight: bold;
+}
+
+.row-container span {
+    text-decoration: underline;
+}

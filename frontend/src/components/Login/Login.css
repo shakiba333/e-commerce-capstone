@@ -23,3 +23,13 @@
     background-color: black;
     color: white;
 }
+
+.register-link-style {
+    background-color: transparent;
+    border: none;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 15px;
+
+}
