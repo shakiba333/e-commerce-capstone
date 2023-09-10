@@ -1,0 +1,15 @@
+.Payment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Payment button {
+    background-color: black;
+    color: white;
+    border: 0;
+    margin: 10px;
+    width: 350px;
+    padding: 1vmin;
+}

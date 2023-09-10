@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../AuthContext";
 import { saveShippingAddress } from "../../slices/cartSlice";
@@ -32,7 +31,6 @@ function Shipping() {
   );
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -49,7 +47,6 @@ function Shipping() {
           phoneNumber,
         })
       );
-      navigate("/payment");
     } else {
       toggleFormOverlay();
     }
