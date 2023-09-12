@@ -29,7 +29,7 @@ function DropDownMenu() {
     <>
       <div class="dropdown-content">
         <Link to="/profile">Profile</Link>
-        <Link to="/order">Order</Link>
+        <Link to="/myorders">Order</Link>
         <Link to="/logout" onClick={logoutHandler}>
           Logout
         </Link>

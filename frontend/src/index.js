@@ -16,13 +16,15 @@ import { Provider } from 'react-redux';
 import store from './store';
 import reportWebVitals from './reportWebVitals';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Cart from './pages/Cart/Cart';
 import WishList from './pages/WishList/WishList';
 import Profile from './pages/Profile/Profile';
 import Orders from './pages/Orders/Orders';
-import Shipping from './components/Shipping/Shipping';
 import Checkout from './pages/Checkout/Checkout';
 import { AuthProvider } from './AuthContext';
+import Delivery from './pages/Delivery/Delivery';
+import Payment from './pages/Payment/Payment';
+import ConfirmOrder from './pages/ConfirmOrder/ConfirmOrder';
+import Order from './pages/Order/Order';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,10 +33,12 @@ const router = createBrowserRouter(
       <Route path='/product/:id' element={<ProductDetail />} />
       <Route path='/wishlist' element={<WishList />} />
       <Route path='/profile' element={<Profile />} />
-      <Route path='/order' element={<Orders />} />
+      <Route path='/myorders' element={<Orders />} />
       <Route path='/checkout' element={<Checkout />} />
-
-
+      <Route path='/delivery' element={<Delivery />} />
+      <Route path='/payment' element={<Payment />} />
+      <Route path='/confirmOrder' element={<ConfirmOrder />} />
+      <Route path='/order/:id' element={<Order />} />
 
     </Route>
   )

@@ -106,9 +106,6 @@ function ProductDetail() {
                       </button>
                     </p>
                   </Col>
-                  <Col>
-                    <p>Count {product.countInStock}</p>
-                  </Col>
                   <Col></Col>
                 </Row>
                 <Row>

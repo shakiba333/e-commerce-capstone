@@ -5,6 +5,7 @@ require('dotenv').config();
 const connectDB = require('./config/db.js')
 const productRoutes = require('./routes/product.js');
 const userRoutes = require('./routes/user.js');
+const orderRoutes = require('./routes/order.js');
 const port = process.env.PORT || 3002;
 
 connectDB();
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 if (process.env.NODE_ENV === 'development') {
     app.get('/', (req, res) => {
         res.send('API is running..');
