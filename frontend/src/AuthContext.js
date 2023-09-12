@@ -9,6 +9,8 @@ export const AuthProvider = ({ children }) => {
     const toggleFormOverlay = () => {
         setSignupIsOpen(!signupIsOpen);
         setIsRegistering(false);
+        console.log(signupIsOpen)
+
     };
 
     const toggleRegisteringOverlay = () => {

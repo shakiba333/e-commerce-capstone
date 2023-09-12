@@ -33,6 +33,11 @@ function Shipping() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  function closeFormOverlay() {
+    if (signupIsOpen === true && userInfo) {
+      toggleFormOverlay();
+    }
+  }
   const submitHandler = (e) => {
     e.preventDefault();
     if (userInfo) {
@@ -57,13 +62,15 @@ function Shipping() {
   return (
     <>
       <div className="shipping">
-        {!userInfo && (
+        {!userInfo ? (
           <div className="row-container">
             <p>Contact Info</p>
             <button onClick={toggleFormOverlay} className="register-link-style">
               Have an account? <span>Login</span>
             </button>
           </div>
+        ) : (
+          closeFormOverlay()
         )}
         <form onSubmit={submitHandler}>
           <input
