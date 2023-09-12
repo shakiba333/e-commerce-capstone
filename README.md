@@ -1,7 +1,10 @@
 # InfiniteMall E-Commerce App
 
 **InfiniteMall E-Commerce** is a full-stack e-commerce web application built with the MERN stack (MongoDB, Express.js, React, and Node.js), along with HTML, CSS, Redux, and Redux Toolkit.
-[Checkout the app here]: (https://www.example.com](https://infinitemall.onrender.com)
+
+## Live Demo
+(https://infinitemall.onrender.com)
+
 ## Features
 
 - **Product Catalog:** Browse a wide range of products.
