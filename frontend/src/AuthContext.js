@@ -5,6 +5,8 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [signupIsOpen, setSignupIsOpen] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
+    const [isEditingName, setIsEditingName] = useState(false);
+    const [buttonVisible, setButtonVisible] = useState(true);
 
     const toggleFormOverlay = () => {
         setSignupIsOpen(!signupIsOpen);
@@ -17,6 +19,10 @@ export const AuthProvider = ({ children }) => {
         setIsRegistering(!isRegistering);
     };
 
+    const toggleEditingName = () => {
+        setIsEditingName(!isEditingName);
+        setButtonVisible(!buttonVisible)
+    }
     return (
         <AuthContext.Provider
             value={{
@@ -24,6 +30,9 @@ export const AuthProvider = ({ children }) => {
                 isRegistering,
                 toggleFormOverlay,
                 toggleRegisteringOverlay,
+                isEditingName,
+                buttonVisible,
+                toggleEditingName
             }}
         >
             {children}

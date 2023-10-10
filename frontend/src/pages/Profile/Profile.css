@@ -1,0 +1,28 @@
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.edit-name {
+    border: 0;
+    text-decoration: underline;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+
+}
+
+.profile-section {
+    margin: 30px 0;
+}
+
+.profile-section>* {
+    margin: 4px 0;
+}
+
+.profile-sub-heading {
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
