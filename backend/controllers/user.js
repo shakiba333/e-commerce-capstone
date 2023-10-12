@@ -133,12 +133,18 @@ async function updateUserProfile(req, res) {
     try {
         const user = await User.findById(req.user._id);
 
+        const hashPassword = async (password) => {
+            const salt = await bcrypt.genSalt(10);
+            return await bcrypt.hash(password, salt);
+        };
+
         if (user) {
             user.name = req.body.name || user.name;
             user.email = req.body.email || user.email;
 
             if (req.body.password) {
-                user.password = req.body.password;
+                req.body.password = await hashPassword(req.body.password);
+                user.password = req.body.password
             }
 
             const updatedUser = await user.save();
@@ -146,7 +152,7 @@ async function updateUserProfile(req, res) {
             res.json({
                 _id: updatedUser._id,
                 name: updatedUser.name,
-                email: updatedUser.email
+                email: updatedUser.email,
             });
         } else {
             res.status(404).json({ message: 'User not found' });

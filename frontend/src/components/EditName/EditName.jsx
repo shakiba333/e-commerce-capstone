@@ -4,6 +4,8 @@ import { useAuth } from "../../AuthContext";
 import { useProfileMutation } from "../../slices/usersApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 import "./EditName.css";
+import UpdateInput from "../UpdateInput/UpdateInput";
+import UpdateForm from "../UpdateForm/UpdateForm";
 
 function EditName() {
   const { toggleEditingName } = useAuth();
@@ -32,28 +34,15 @@ function EditName() {
 
   return (
     <div>
-      <form action="">
-        <div class="full-input">
-          <label className="edit-label" for="name">
-            Preferred Name
-          </label>
-          <input
-            className="edit-input"
-            type="text"
-            name="name"
-            placeholder="Preferred Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <br />
-        <button className="cancel-btn" type="cancel">
-          Cancel
-        </button>
-        <button className="save-btn" type="submit" onClick={submitHandler}>
-          Save
-        </button>
-      </form>
+      <UpdateForm submitHandler={submitHandler}>
+        <UpdateInput
+          label={"Preferred Name"}
+          type={"text"}
+          name={"name"}
+          value={name}
+          onChangeSetter={setName}
+        />
+      </UpdateForm>
     </div>
   );
 }

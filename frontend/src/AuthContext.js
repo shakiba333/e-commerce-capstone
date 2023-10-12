@@ -6,8 +6,9 @@ export const AuthProvider = ({ children }) => {
     const [signupIsOpen, setSignupIsOpen] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
     const [isEditingName, setIsEditingName] = useState(false);
-    const [buttonVisible, setButtonVisible] = useState(true);
-
+    const [isChangingPassword, setIsChangingPassword] = useState(false);
+    const [editNameShow, setEditNameShow] = useState(true);
+    const [changePasswordShow, setChangePasswordShow] = useState(true);
     const toggleFormOverlay = () => {
         setSignupIsOpen(!signupIsOpen);
         setIsRegistering(false);
@@ -21,7 +22,11 @@ export const AuthProvider = ({ children }) => {
 
     const toggleEditingName = () => {
         setIsEditingName(!isEditingName);
-        setButtonVisible(!buttonVisible)
+        setEditNameShow(!editNameShow)
+    }
+    const toggleChangePassword = () => {
+        setIsChangingPassword(!isChangingPassword);
+        setChangePasswordShow(!changePasswordShow)
     }
     return (
         <AuthContext.Provider
@@ -31,8 +36,11 @@ export const AuthProvider = ({ children }) => {
                 toggleFormOverlay,
                 toggleRegisteringOverlay,
                 isEditingName,
-                buttonVisible,
-                toggleEditingName
+                editNameShow,
+                toggleEditingName,
+                isChangingPassword,
+                changePasswordShow,
+                toggleChangePassword,
             }}
         >
             {children}

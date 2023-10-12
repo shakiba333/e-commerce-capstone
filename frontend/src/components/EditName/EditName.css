@@ -2,6 +2,7 @@
     display: inline-block;
     padding: 4px 10px;
     border: 1px solid gray;
+    margin: 10px 0;
 }
 
 .full-input .edit-input {
@@ -17,6 +18,7 @@
 .full-input .edit-label {
     display: block;
     font-size: 12px;
+
 
 }
 
