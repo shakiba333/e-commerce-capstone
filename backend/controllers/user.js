@@ -7,7 +7,8 @@ module.exports = {
     loginUser,
     logoutUser,
     getUserProfile,
-    updateUserProfile
+    updateUserProfile,
+
 }
 
 async function registerUser(req, res) {
@@ -162,5 +163,4 @@ async function updateUserProfile(req, res) {
         res.status(500).json({ message: 'An error occurred while updating the user profile.' });
     }
 }
-
 

@@ -69,7 +69,7 @@ function Header() {
                   <FiHeart />
                 </Nav.Link>
               </LinkContainer>
-              <div class="dropdown">
+              <div className="dropdown">
                 <button
                   onClick={toggleFormOverlay}
                   className="overlay-btn px-3 dropbtn"

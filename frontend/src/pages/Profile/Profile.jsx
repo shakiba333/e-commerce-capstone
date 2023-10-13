@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
 import { useAuth } from "../../AuthContext";
-import "./Profile.css";
 import EditName from "../../components/EditName/EditName";
-import { useState } from "react";
 import ChangePassword from "../../components/ChangePassword/ChangePassword";
+import "./Profile.css";
 
 function Profile() {
   const { userInfo } = useSelector((state) => state.auth);

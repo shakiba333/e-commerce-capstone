@@ -26,3 +26,12 @@ h2 {
     font-weight: bold;
     letter-spacing: 2px;
 }
+
+.delete-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-family: 'Jost', sans-serif;
+    ;
+}
