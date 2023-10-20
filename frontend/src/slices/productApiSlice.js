@@ -14,8 +14,16 @@ export const productsApiSlice = apiSlice.injectEndpoints({
             }),
             keepUnusedDataFor: 5
         }),
+        addReview: builder.mutation({
+            query: (data) => ({
+                url: `/api/products/${data.productId}/reviews`,
+                method: 'POST',
+                body: data,
+            }),
+            invalidatesTags: ['Product'],
+        }),
 
     }),
 });
 
-export const { useGetAllProductsQuery, useGetProductDetailsQuery } = productsApiSlice;
+export const { useGetAllProductsQuery, useGetProductDetailsQuery, useAddReviewMutation, } = productsApiSlice;
