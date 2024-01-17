@@ -27,32 +27,38 @@ async function productReviews(req, res) {
     try {
         const { rating, comment } = req.body;
         const product = await Product.findById(req.params.id);
+
         if (product) {
-            const existingReviews = product.reviews.find(
-                (review) => review.user.toString() === req.user._id.toString()
+            const alreadyReviewed = product.reviews.find(
+                (r) => r.user.toString() === req.user._id.toString()
+
             );
 
-            if (existingReviews) {
+            if (alreadyReviewed) {
                 res.status(404).json({ message: 'Your review is already exist.' });
             }
+
 
             const review = {
                 name: req.user.name,
                 rating: Number(rating),
-                comment,
+                comment: comment,
                 user: req.user._id,
             };
+            console.log(review)
 
             product.reviews.push(review);
-            product.numReviews = product.reviews.length;
+
             product.rating =
                 product.reviews.reduce((acc, item) => item.rating + acc, 0) /
                 product.reviews.length;
 
             await product.save();
             res.status(201).json({ message: 'Review added' });
+
         }
     } catch (error) {
-        res.status(404).json({ message: 'Product not found.' })
+        console.error(error);
+        return res.status(500).json({ message: 'Internal Server Error' });
     }
 }

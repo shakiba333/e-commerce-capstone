@@ -7,7 +7,7 @@ const reviewSchema = mongoose.Schema(
         comment: { type: String, required: true },
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true,
+
             ref: 'User',
         },
     },
@@ -16,6 +16,11 @@ const reviewSchema = mongoose.Schema(
     }
 );
 const productSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+
+        ref: 'User',
+    },
     name: {
         type: String,
         required: true,

@@ -12,6 +12,8 @@ import {
   ListGroup,
   Button,
   ListGroupItem,
+  Card,
+  Form,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -23,20 +25,16 @@ import UpdateForm from "../../components/UpdateForm/UpdateForm";
 import UpdateInput from "../../components/UpdateInput/UpdateInput";
 
 function ProductDetail() {
+  const { id: productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const { id: productId } = useParams();
-
   const { userInfo } = useSelector((state) => state.auth);
-
   const { data: product, refetch } = useGetProductDetailsQuery(productId);
-
-  const [addReview] = useAddReviewMutation();
-
+  const [addReview, { isLoading: loadingProductReview }] =
+    useAddReviewMutation();
   const handleIncreaseQuantity = () => {
     if (qty < product.countInStock) {
       setQty(qty + 1);
@@ -62,16 +60,25 @@ function ProductDetail() {
   const AddReviewHandler = async (e) => {
     e.preventDefault();
 
+    console.log(
+      "Submitting review:",
+      productId,
+      rating,
+      comment,
+      userInfo.name
+    );
+
     try {
       await addReview({
         productId,
         rating,
         comment,
       }).unwrap();
+
       refetch();
-      console.log("Review created successfully");
-    } catch (err) {
-      console.log("Review not added! error: " + err);
+      console.log("Review added!");
+    } catch (e) {
+      console.error("Review not added! Error:", e);
     }
   };
   return (
@@ -166,14 +173,56 @@ function ProductDetail() {
           <Row>
             <Col md={6}>
               <h2>Reviews</h2>
+              {product.reviews.length === 0 && <p>No Reviews</p>}
+              {product.reviews.map((review) => (
+                <div key={review._id}>
+                  <strong>{review.name}</strong>
+                  <Rating value={review.rating} />
+                  <p>{review.createdAt.substring(0, 10)}</p>
+                  <p>{review.comment}</p>
+                </div>
+              ))}
               {userInfo ? (
-                <>
-                  <UpdateForm AddReviewHandler={AddReviewHandler}>
-                    <textarea></textarea>
-                  </UpdateForm>
-                </>
+                <Form onSubmit={AddReviewHandler}>
+                  <Form.Group className="my-2" controlId="rating">
+                    <Form.Label>Rating</Form.Label>
+                    <Form.Control
+                      as="select"
+                      required
+                      value={rating}
+                      onChange={(e) => setRating(e.target.value)}
+                    >
+                      <option value="">Select...</option>
+                      <option value="1">1 - Poor</option>
+                      <option value="2">2 - Fair</option>
+                      <option value="3">3 - Good</option>
+                      <option value="4">4 - Very Good</option>
+                      <option value="5">5 - Excellent</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group className="my-2" controlId="comment">
+                    <Form.Label>Comment</Form.Label>
+                    <Form.Control
+                      as="textarea"
+                      row="3"
+                      required
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
+                    ></Form.Control>
+                  </Form.Group>{" "}
+                  <Button
+                    // disabled={loadingProductReview}
+                    type="submit"
+                    variant="primary"
+                    onClick={AddReviewHandler}
+                  >
+                    Submit
+                  </Button>
+                </Form>
               ) : (
-                <p>There are no reviews for this product yet.</p>
+                <p>
+                  Please <Link to="/login">sign in</Link> to write a review
+                </p>
               )}
             </Col>
           </Row>
