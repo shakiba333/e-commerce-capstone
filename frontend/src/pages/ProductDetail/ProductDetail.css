@@ -9,6 +9,7 @@
 }
 
 .btn-add-cart {
+    font-family: 'Bebas Neue', sans-serif;
     flex-basis: 80%;
     background-color: black;
     color: white;
